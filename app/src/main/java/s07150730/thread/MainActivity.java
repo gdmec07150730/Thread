@@ -131,17 +131,17 @@ public class MainActivity extends AppCompatActivity {
         timer2.schedule(thread2, 0);
     }
 
-    public void handlermessage(View v) {
+   /* public void handlermessage(View v) {
         final Handler myHandler=new Handler(){
-            @Override
-            public void handleMessage(Message msg){
-                super.handleMessage(msg);
-                switch (msg.what){
-                    case 1:
-                        showmsg(String.valueOf(msg.arg1+msg.getData().get("attach").toString()));
+              //  @Override
+                public void handleMessage(Message msg){
+                    //super.handleMessage(msg);
+                    switch (msg.what){
+                        case 1:
+                            showmsg(String.valueOf(msg.arg1+msg.getData().get("attach").toString()));
+                    }
                 }
-            }
-        };
+        };*/
         class MyTask extends TimerTask{
             int countdown;
             double achievement1=1,achievement2=1;
@@ -158,13 +158,13 @@ public class MainActivity extends AppCompatActivity {
                 Bundle bundle=new Bundle();
                 bundle.putString("attach","\n努力多1%："+achievement1+"\n努力多2%："+achievement2);
                 msg.setData(bundle);
-                myHandler.sendMessage(msg);
+               // myHandler.sendMessage(msg);
             }
         }
         Timer timer=new Timer();
-        timer.schedule(new MyTask(seconds),1,1000);
+        //timer.schedule(new MyTask(seconds),1,1000);
 
-    }
+
     public void showmsg(String msg){
         tv1.setText(msg);
     }
